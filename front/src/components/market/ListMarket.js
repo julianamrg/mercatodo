@@ -30,16 +30,17 @@ const ListMarket = () => {
     }, []);
 
     return (
-        <div>
+        <div className="table-responsive-md ">
             <table className="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">DESCRIPCION</th>
                         <th scope="col">CATEGORIA</th>
-                        <th scope="col">CANTIDAD</th>
+                        <th scope="col">CANT.</th>
                         <th scope="col">PROVEEDOR</th>
                         <th scope="col">FECHA LLEGADA</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>

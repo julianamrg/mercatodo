@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+import "./marketStyles.css";
+import { Link } from "react-router-dom";
 
 import * as MarketServer from "./MarketServer";
 
@@ -37,7 +39,7 @@ const MarketForm = () => {
                 await MarketServer.updateProduct(params.id, market);
             }
 
-            history.push("/");
+            history.push("/market");
         } catch (error) {
             console.log(error);
         }
@@ -47,7 +49,7 @@ const MarketForm = () => {
         try {
             const res = await MarketServer.getProduct(idProduct);
             const data = await res.json();
-            const { userId, id, title } = data;
+            const { userId, title } = data;
             setmarket({
                 description: title,
                 category: title,
@@ -68,10 +70,10 @@ const MarketForm = () => {
     }, []);
 
     return (
-        <div className="col-md-6 offset-md-3 mt-3">
-            <div className="movie">
-                <div className="movie-body">
-                    <form onSubmit={handleSubmit} className="bg-secondary p-3">
+        <div className="col-md-6 offset-md-3 mt-4">
+            <div className="market">
+                <div className="market-body">
+                    <form onSubmit={handleSubmit} className=" p-3">
                         <div className="form-group mb-1">
                             <input
                                 type="text"
@@ -124,18 +126,21 @@ const MarketForm = () => {
                             />
                         </div>
                         {params.id ? (
-                            <button className="btn btn-light mt-2 w-25">
+                            <button className="btn btn-primary mt-2 rounded-pill ms-3">
                                 ACTUALIZAR
                             </button>
                         ) : (
-                            <button className="btn btn-primary mt-2 w-25">
+                            <button className="btn btn-light mt-2 rounded-pill ms-3">
                                 AGREGAR
                             </button>
                         )}
 
-                        <button className="btn btn-dark text-white mt-2 w-25 ms-3">
+                        <Link
+                            to="/market"
+                            className="btn btn-back text-white mt-2 float-end rounded-pill me-3"
+                        >
                             VOLVER
-                        </button>
+                        </Link>
                     </form>
                 </div>
             </div>

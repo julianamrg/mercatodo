@@ -25,22 +25,23 @@ const MarketItem = ({
             <th scope="row">{id}</th>
             <td>{description}</td>
             <td>{category}</td>
-            <td>{amount}</td>
+            <td className="text-center">{amount}</td>
             <td>{provider}</td>
             <td>{date}</td>
-            <a
-                href="#"
-                className="text-danger"
-                onClick={() => id && handleDelete(id)}
-            >
-                <i className="fa-solid fa-delete-left"></i>
-            </a>
-            <button
-                className="btn btn-sm btn-info "
-                onClick={() => history.push(`/updateProduct/${id}`)}
-            >
-                <i className="fa-solid fa-pen-to-square text-info"></i>
-            </button>
+            <td className="d-flex">
+                <span
+                    className="text-danger me-2 cursor-pointer"
+                    onClick={() => id && handleDelete(id)}
+                >
+                    <i className="fa-solid fa-delete-left"></i>
+                </span>
+                <span
+                    className=""
+                    onClick={() => history.push(`/updateProduct/${id}`)}
+                >
+                    <i className="fa-solid fa-pen-to-square text-info"></i>
+                </span>
+            </td>
         </tr>
     );
 };
