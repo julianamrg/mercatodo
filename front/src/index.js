@@ -22,6 +22,7 @@ ReactDOM.render(
                 <Switch>
                     <Route exact path="/" component={Login} />
                     <Route exact path="/market" component={ListMarket} />
+                    <Route exact path="/market/:admi" component={ListMarket} />
                     <Route path="/form" component={MarketForm} />
                     <Route path="/updateProduct/:id" component={MarketForm} />
                 </Switch>

@@ -19,7 +19,7 @@ const Navbar = () => {
     const onSelectChange = (e) => {
         setSelectValue(e.target.options[e.target.selectedIndex].text);
     };
-
+    console.log(location.pathname);
     return (
         <div className="navContainer position-relative">
             <nav className="navbar navbar-dark">
@@ -33,7 +33,7 @@ const Navbar = () => {
                             SUPERMERCADO MERCATODO
                         </Link>
                     </div>
-                    {location.pathname === "/market" ? (
+                    {location.pathname === "/market" || "market/admi" ? (
                         <div className="w-100 d-flex flex-column flex-sm-row justify-content-center ">
                             <form className="m-auto d-flex align-items-center position-relative mb-2 mb-sm-3 ">
                                 <input
@@ -66,13 +66,12 @@ const Navbar = () => {
                                 <option value="9">Elementos de aseo</option>
                                 <option value="10">Desinfectantes</option>
                                 <option value="11">Aseo personal</option>
-                                <option value="10">fugiat veniam minus</option>
                             </select>
                         </div>
                     ) : null}
                 </div>
             </nav>
-            {location.pathname === "/market" ? (
+            {location.pathname === "/market/admi" ? (
                 <button className="btn-add p-1 rounded-circle position-absolute">
                     <Link className="text-white " to="/form">
                         <i className="fas fa-plus"></i>

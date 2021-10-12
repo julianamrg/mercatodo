@@ -12,9 +12,10 @@ const MarketForm = () => {
     // console.log(params);
 
     const initialState = {
+        // id: 3,
         description: "",
         category: "",
-        amount: 0,
+        amount: "",
         privider: "",
         date: "",
     };
@@ -39,7 +40,7 @@ const MarketForm = () => {
                 await MarketServer.updateProduct(params.id, market);
             }
 
-            history.push("/market");
+            history.push("/market/admi");
         } catch (error) {
             console.log(error);
         }
@@ -49,13 +50,21 @@ const MarketForm = () => {
         try {
             const res = await MarketServer.getProduct(idProduct);
             const data = await res.json();
-            const { userId, title } = data;
+            const {
+                id,
+                pro_description,
+                pro_category,
+                pro_existences,
+                pro_provider,
+                pro_date,
+            } = data;
             setmarket({
-                description: title,
-                category: title,
-                amount: userId,
-                provider: title,
-                date: title,
+                id: id,
+                description: pro_description,
+                category: pro_category,
+                amount: pro_existences,
+                provider: pro_provider,
+                date: pro_date,
             });
         } catch (error) {
             console.log(error);
@@ -66,6 +75,7 @@ const MarketForm = () => {
         if (params.id) {
             getProduct(params.id);
         }
+        // console.log(market);
         // eslint-disable-next-line
     }, []);
 
@@ -136,7 +146,7 @@ const MarketForm = () => {
                         )}
 
                         <Link
-                            to="/market"
+                            to="/market/admi"
                             className="btn btn-back text-white mt-2 float-end rounded-pill me-3"
                         >
                             VOLVER

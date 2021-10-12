@@ -7,14 +7,6 @@ import MarketItem from "./MarketItem";
 import * as MarketServer from "./MarketServer";
 
 const ListMarket = () => {
-    // const getData = async () => {
-    //     const response = await fetch(data);
-    //     // const text = await response.text();
-    //     // const data = await text.json();
-    //     console.log(await response.text());
-    // };
-    // getData();
-
     const [products, setProducts] = useState([]);
 
     //obteniendo productos del API
@@ -36,12 +28,12 @@ const ListMarket = () => {
         // Si hay algo en el buscador
         if (data.length !== 0) {
             const filtered = products.filter((product) =>
-                product.title.toLowerCase().includes(data)
+                product.pro_description.toLowerCase().includes(data)
             );
             return filtered;
         } else if (selectValue !== "Categorías") {
             const filterSelect = products.filter((product) =>
-                product.title.includes(selectValue)
+                product.pro_category.includes(selectValue)
             );
             return filterSelect;
         } else {
@@ -51,7 +43,6 @@ const ListMarket = () => {
 
     useEffect(() => {
         listProducts();
-        console.log(selectValue);
         // eslint-disable-next-line
     }, []);
 
@@ -74,11 +65,11 @@ const ListMarket = () => {
                         <MarketItem
                             key={product.id}
                             id={product.id}
-                            description={product.title}
-                            category={product.title}
-                            amount={product.userId}
-                            provider={product.title}
-                            date={product.title}
+                            description={product.pro_description}
+                            category={product.pro_category}
+                            amount={product.pro_existences}
+                            provider={product.pro_provider}
+                            date={product.pro_date}
                             listProducts={listProducts}
                         />
                     ))}
