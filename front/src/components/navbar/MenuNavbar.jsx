@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./navStyles.css";
 import logo from "../../assets/img/logoMtodo.png";
 import { useLocation } from "react-router-dom";
 
+import { DataContext } from "../../context/DataContext";
+
 const Navbar = () => {
+    //leer url
     let location = useLocation();
-    // console.log(location.pathname);
+
+    const { data, setData, setSelectValue } = useContext(DataContext);
+
+    const onSearchChange = ({ target }) => {
+        setData(target.value.toLowerCase());
+    };
+
+    const onSelectChange = (e) => {
+        setSelectValue(e.target.options[e.target.selectedIndex].text);
+    };
+
     return (
         <div className="navContainer position-relative">
             <nav className="navbar navbar-dark">
@@ -26,8 +39,10 @@ const Navbar = () => {
                                 <input
                                     className="form-control me-sm-2 me-xs-0 rounded-pill"
                                     type="search"
-                                    placeholder="Search"
+                                    value={data}
+                                    placeholder="Buscar"
                                     aria-label="Search"
+                                    onChange={onSearchChange}
                                 />
                                 <span className="position-absolute end-0 me-3 me-sm-4">
                                     <i className="fas fa-search"></i>
@@ -37,10 +52,9 @@ const Navbar = () => {
                                 className="form-select m-auto rounded-pill mb-2 mb-sm-3"
                                 aria-label="Default select "
                                 defaultValue="0"
+                                onChange={onSelectChange}
                             >
-                                <option value="0" disabled>
-                                    Categorías
-                                </option>
+                                <option value="0">Categorías</option>
                                 <option value="1">Cárnicos</option>
                                 <option value="2">Lácteos y derivados</option>
                                 <option value="3">Embutidos</option>
@@ -52,6 +66,7 @@ const Navbar = () => {
                                 <option value="9">Elementos de aseo</option>
                                 <option value="10">Desinfectantes</option>
                                 <option value="11">Aseo personal</option>
+                                <option value="10">fugiat veniam minus</option>
                             </select>
                         </div>
                     ) : null}

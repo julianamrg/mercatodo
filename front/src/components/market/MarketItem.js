@@ -30,7 +30,7 @@ const MarketItem = ({
             <td>{date}</td>
             <td className="d-flex">
                 <span
-                    className="text-danger me-2 cursor-pointer"
+                    className="text-danger me-2 "
                     onClick={() => id && handleDelete(id)}
                 >
                     <i className="fa-solid fa-delete-left"></i>

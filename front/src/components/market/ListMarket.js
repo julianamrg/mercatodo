@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { DataContext } from "../../context/DataContext";
 
 // Components:
 import MarketItem from "./MarketItem";
@@ -13,20 +14,45 @@ const ListMarket = () => {
     //     console.log(await response.text());
     // };
     // getData();
+
     const [products, setProducts] = useState([]);
 
+    //obteniendo productos del API
     const listProducts = async () => {
         try {
             const res = await MarketServer.listMarket();
             const data = await res.json();
             setProducts(data);
+            // return data;
         } catch (error) {
             console.log(error);
         }
     };
 
+    const { data, selectValue } = useContext(DataContext);
+
+    //filtrando productos
+    const filteredChallenges = () => {
+        // Si hay algo en el buscador
+        if (data.length !== 0) {
+            const filtered = products.filter((product) =>
+                product.title.toLowerCase().includes(data)
+            );
+            return filtered;
+        } else if (selectValue !== "Categorías") {
+            const filterSelect = products.filter((product) =>
+                product.title.includes(selectValue)
+            );
+            return filterSelect;
+        } else {
+            return products;
+        }
+    };
+
     useEffect(() => {
         listProducts();
+        console.log(selectValue);
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -44,7 +70,7 @@ const ListMarket = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product) => (
+                    {filteredChallenges().map((product) => (
                         <MarketItem
                             key={product.id}
                             id={product.id}
