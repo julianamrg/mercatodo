@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mercatodosupermercado_db',
         'USER': '245623_user',
-        'PASSWORD': 'Deploy123.',
+        'PASSWORD': 'Programate2.0',
         'HOST': 'mysql-mercatodosupermercado.alwaysdata.net',
         'PORT': '3306',
     }
