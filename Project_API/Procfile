@@ -1,0 +1,1 @@
+web: gunicorn mercatodo.wsgi --log-file -
