@@ -28,7 +28,7 @@ const Navbar = () => {
                         <img className="img-logo me-2 " src={logo} alt="Logo" />
                         <Link
                             className="navbar-brand text-center me-0 fw-bold fs-5"
-                            to="/market"
+                            to="/market/admi"
                         >
                             SUPERMERCADO MERCATODO
                         </Link>

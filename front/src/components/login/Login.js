@@ -7,36 +7,36 @@ const Login = () => {
     const history = useHistory();
 
     // console.log(params);
-    const API_LOGIN = "http://localhost:3001/users";
+    // const API_LOGIN = "http://localhost:3001/users";
 
-    const [users, setuser] = useState();
+    // const [users, setuser] = useState();
 
-    const startSesion = async () => {
-        const response = await fetch(API_LOGIN);
-        const data = await response.json();
-        setuser(data);
-    };
+    // const startSesion = async () => {
+    //     const response = await fetch(API_LOGIN);
+    //     const data = await response.json();
+    //     setuser(data);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const filterdata = users.filter((user) => user.email === login.email);
-        try {
-            if (
-                filterdata[0].email === login.email &&
-                filterdata[0].password === login.password &&
-                filterdata[0].cargo === login.cargo
-            ) {
-                if (login.cargo === "Administrador") {
-                    history.push(`/market/admi`);
-                } else {
-                    history.push("/market");
-                }
-            }
-        } catch (error) {
-            console.log(error);
-            alert("Datos incorrectos");
-        }
+        // const filterdata = users.filter((user) => user.email === login.email);
+        // try {
+        //     if (
+        //         filterdata[0].email === login.email &&
+        //         filterdata[0].password === login.password &&
+        //         filterdata[0].cargo === login.cargo
+        //     ) {
+        //         if (login.cargo === "Administrador") {
+        history.push(`/market/admi`);
+        //         } else {
+        //             history.push("/market");
+        //         }
+        //     }
+        // } catch (error) {
+        //     console.log(error);
+        //     alert("Datos incorrectos");
+        // }
     };
 
     const initialState = {
@@ -56,9 +56,9 @@ const Login = () => {
         });
     };
 
-    useEffect(() => {
-        startSesion();
-    }, []);
+    // useEffect(() => {
+    //     startSesion();
+    // }, []);
 
     return (
         <div className="">

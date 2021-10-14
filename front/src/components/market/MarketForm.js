@@ -12,7 +12,7 @@ const MarketForm = () => {
     // console.log(params);
 
     const initialState = {
-        // id: 3,
+        id: "",
         description: "",
         category: "",
         amount: "",
@@ -51,7 +51,7 @@ const MarketForm = () => {
             const res = await MarketServer.getProduct(idProduct);
             const data = await res.json();
             const {
-                id,
+                pro_id,
                 pro_description,
                 pro_category,
                 pro_existences,
@@ -59,7 +59,7 @@ const MarketForm = () => {
                 pro_date,
             } = data;
             setmarket({
-                id: id,
+                id: pro_id,
                 description: pro_description,
                 category: pro_category,
                 amount: pro_existences,
