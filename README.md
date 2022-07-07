@@ -51,8 +51,3 @@ Este proyecto fue realizado en colaboracion de :
 * Cristian Buenaventura, https://github.com/CristianTura
 * John Rojas, 
 
-## Formadores
-* Juliana Fajardo, github: https://github.com/wjulifajarb - *Co - formadora Gracias por compartir tu experiencia*
-* Moises Ariza - *Formador* 
-* Diego Romero, github: https://github.com/DiegoRX - *Co - Formador*
-* Lorena Guerrero - *Formadora*
